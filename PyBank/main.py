@@ -36,9 +36,22 @@ with open(csvpath) as financial_data:
         #Total revenue calculation
         revenue_total = revenue_total + int(row["Profit/Losses"])
 
+        #Calculate Revenue Change
+        revenue_change = int(row["Profit/Losses"]) - previous_revenue
+        previous_revenue = int(row["Profit/Losses"])
+        revenue_change_list = revenue_change_list + revenue_change
+
+        #Calculate the Average Revenue Change
+        
+
+        #Calculate greatest increase
+
+        #Calculate greatest decrease
+
 output = (
     f"Total Months: {months_total}\n"
     f"Total Revenue: ${revenue_total}\n")
+    f"Average Change: $"
 print(output)
 
 #Outputing a .txt file

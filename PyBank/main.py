@@ -17,7 +17,7 @@ revenue_change_list = []
 #Starting points for future math
 months_total = 0
 previous_revenue = 0
-total_revenue = 0
+revenue_total = 0
 
 #Tracking Greatests
 increase_greatest = ["", 0]
@@ -34,9 +34,9 @@ with open(csvpath) as financial_data:
         delta_months.append(row["Date"])
 
         #Total revenue calculation
-        total_revenue = total_revenue + int(row["Profit/Losses"])
+        revenue_total = revenue_total + int(row["Profit/Losses"])
 
 output = (
     f"Total Months: {months_total}\n"
-    f"Total Revenue: ${total_revenue}\n")
+    f"Total Revenue: ${revenue_total}\n")
 print(output)

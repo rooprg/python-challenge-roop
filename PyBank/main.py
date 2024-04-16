@@ -39,10 +39,11 @@ with open(csvpath) as financial_data:
         #Calculate Revenue Change
         revenue_change = int(row["Profit/Losses"]) - previous_revenue
         previous_revenue = int(row["Profit/Losses"])
-        revenue_change_list = revenue_change_list + revenue_change
+        revenue_change_list = revenue_change_list + [revenue_change]
 
         #Calculate the Average Revenue Change
-        
+        divisor = len(revenue_change_list)
+        average_change = sum(revenue_change_list) / (divisor)
 
         #Calculate greatest increase
 
@@ -51,7 +52,7 @@ with open(csvpath) as financial_data:
 output = (
     f"Total Months: {months_total}\n"
     f"Total Revenue: ${revenue_total}\n")
-    f"Average Change: $"
+    
 print(output)
 
 #Outputing a .txt file

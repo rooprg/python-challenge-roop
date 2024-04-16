@@ -2,7 +2,10 @@
 import os
 import csv
 
-csvpath = os.path.join('..', 'Resources', 'budget_data.csv')
+csvpath = os.path.join('.', 'Resources', 'budget_data.csv')
+
+#Define the field names for two columns
+fieldnames = ['Date', 'Profit/Losses']
 
 # Generating output
 file_to_output = "PyBank Analysis Summary"
@@ -18,22 +21,25 @@ revenue_total = 0
 
 #Tracking Greatests
 increase_greatest = ["", 0]
-decrease_greatest = ["", 99999999999999]
+decrease_greatest = ["", float('inf')]
 
 # Read the csv and convert it into a dictionary using DictReader
 with open(csvpath) as financial_data:
-    reader = csv.DictReader(financial_data)
-
-
+    reader = csv.DictReader(financial_data, fieldnames=fieldnames)
+    next(reader)  # Skip the header row
     for row in reader:
 
-        #Totals Tracking
-        months_total = months_total + 1
-        revenue_total = revenue_total + int(row["Profits/Losses"])
+        #Change in Months calculation
+        months_total += 1
+        delta_months.append(row["Date"])
 
-        #Revenue Delta Tracking
-        revenue_delta = int(row["Profits/Losses"]) - previous_revenue
+        #Change in Revenue calculation
+        delta_revenue = int(row["Profits/Losses"]) - previous_revenue
         previous_revenue = int(row["Profits/Losses"])
-        delta_revenue = delta_revenue + [previous_revenue]
-        delta_months = delta_months + [row["Date"]]
+        revenue_total.append(delta_revenue)
 
+
+output = (
+    f"Total Months: {months_total}\n"
+    f"Total Revenue: {revenue_total}\n"
+print(output)

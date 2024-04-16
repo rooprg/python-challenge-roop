@@ -42,16 +42,17 @@ with open(csvpath) as financial_data:
         revenue_change_list = revenue_change_list + [revenue_change]
 
         #Calculate the Average Revenue Change
-        divisor = len(revenue_change_list)
-        average_change = sum(revenue_change_list) / (divisor)
+        average_change = sum(revenue_change_list) / len(revenue_change_list)
 
         #Calculate greatest increase
 
         #Calculate greatest decrease
 
 output = (
+    f"Financial Analysis\n"
+    f"----------------------------------\n"
     f"Total Months: {months_total}\n"
-    f"Total Revenue: ${revenue_total}\n")
+    f"Total Revenue: ${revenue_total}\n"
     
 print(output)
 

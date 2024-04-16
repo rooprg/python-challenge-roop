@@ -12,11 +12,12 @@ file_to_output = "PyBank Analysis Summary"
 
 #Create lists
 delta_months = []
-delta_revenue = []
+revenue_change_list = []
 
 #Starting points for future math
 months_total = 0
-revenue_total = 0
+previous_revenue = 0
+total_revenue = 0
 
 #Tracking Greatests
 increase_greatest = ["", 0]
@@ -32,12 +33,10 @@ with open(csvpath) as financial_data:
         months_total += 1
         delta_months.append(row["Date"])
 
-        # Change in Revenue calculation
-        previous_revenue = 0
-        
-
+        #Total revenue calculation
+        total_revenue = total_revenue + int(row["Profit/Losses"])
 
 output = (
     f"Total Months: {months_total}\n"
-    f"Total Revenue: {change_revenue}\n")
+    f"Total Revenue: ${total_revenue}\n")
 print(output)

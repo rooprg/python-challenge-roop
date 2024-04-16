@@ -40,3 +40,5 @@ output = (
     f"Total Months: {months_total}\n"
     f"Total Revenue: ${revenue_total}\n")
 print(output)
+
+#Outputing a .txt file

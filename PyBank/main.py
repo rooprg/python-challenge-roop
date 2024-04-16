@@ -48,6 +48,7 @@ with open(csvpath) as financial_data:
 
         #Calculate greatest decrease
 
+#Create Terminal Output
 output = (
     f"Financial Analysis\n"
     f"----------------------------------\n"

@@ -33,13 +33,12 @@ with open(csvpath) as financial_data:
         months_total += 1
         delta_months.append(row["Date"])
 
-        #Change in Revenue calculation
+        # Change in Revenue calculation
         change_revenue = int(row["Profit/Losses"]) - previous_revenue
         previous_revenue = int(row["Profit/Losses"])
-        delta_revenue = delta_revenue + [change_revenue]
+        delta_revenue.append(change_revenue)
 
 
 output = (
-    f"Total Months: {months_total}\n"
-    f"Total Revenue: {revenue_total}\n")
+    f"Total Months: {months_total}\n")
 print(output)

@@ -52,7 +52,7 @@ output = (
     f"Financial Analysis\n"
     f"----------------------------------\n"
     f"Total Months: {months_total}\n"
-    f"Total Revenue: ${revenue_total}\n"
+    f"Total Revenue: ${revenue_total}\n")
     
 print(output)
 

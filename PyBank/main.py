@@ -16,10 +16,6 @@ months_total = 0
 previous_pandl = 0
 pandl_total = 0
 
-#Tracking Greatests
-increase_greatest = ["", 0]
-decrease_greatest = ["", float('inf')]
-
 # Read the csv and convert it into a dictionary using DictReader
 with open(csvpath) as financial_data:
     reader = csv.DictReader(financial_data, fieldnames=fieldnames)
@@ -42,6 +38,10 @@ with open(csvpath) as financial_data:
         
 
         #Calculate greatest increase
+        #Tracking Greatests
+        increase_greatest = ["", 0]
+        decrease_greatest = ["", float('inf')]
+
         if (pandl_change > increase_greatest[1]):
             increase_greatest[0] = row["Date"]
             increase_greatest[1] = pandl_change

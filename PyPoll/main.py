@@ -71,3 +71,11 @@ output += (
 )
 
 print(output)
+
+#Outputing a .txt file
+file_to_output = "PyPoll Analysis Summary"
+complete_name = os.path.join('.', 'Analysis', file_to_output+".txt")
+file1 = open(complete_name, "w")
+toFile = output
+file1.write(toFile)
+file1.close()

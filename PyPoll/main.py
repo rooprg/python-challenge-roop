@@ -12,6 +12,7 @@ candidates_with_votes = []
 
 #Starting Point for future math
 votes_counted = 0
+candidates_counted = 0
 
 
 # Method 1: Plain Reading of CSV files
@@ -25,7 +26,8 @@ with open(csvpath, 'r') as voting_data:
             votes_delta.append(row["Ballot"])
             final_tally = len(votes_delta)
 
-      
+            #Calculating Candidates receiving votes
+            
 
 #Create Terminal Output
 output = (

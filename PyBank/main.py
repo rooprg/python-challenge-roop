@@ -30,16 +30,16 @@ with open(csvpath) as financial_data:
         months_total += 1
         delta_months.append(row["Date"])
         
-        #Total revenue calculation
+        #Total Profits/Losses calculation
         pandl_total = pandl_total + int(row["Profit/Losses"])
 
-        #Calculate Revenue Change
+        #Calculate Profits/Losses Change
         pandl_change = int(row["Profit/Losses"]) - previous_pandl
         previous_pandl = int(row["Profit/Losses"])
         pandl_change_list = pandl_change_list + [pandl_change]
 
-        #Calculate the Average Revenue Change
-        print(pandl_change)
+        #Calculate the Average Profits/Losses Change
+        
 
         #Calculate greatest increase
         if (pandl_change > increase_greatest[1]):

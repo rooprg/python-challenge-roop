@@ -12,12 +12,12 @@ file_to_output = "PyBank Analysis Summary"
 
 #Create lists
 delta_months = []
-revenue_change_list = []
+pandl_change_list = []
 
 #Starting points for future math
 months_total = 0
-previous_revenue = 0
-revenue_total = 0
+previous_pandl = 0
+pandl_total = 0
 
 #Tracking Greatests
 increase_greatest = ["", 0]
@@ -34,12 +34,12 @@ with open(csvpath) as financial_data:
         delta_months.append(row["Date"])
 
         #Total revenue calculation
-        revenue_total = revenue_total + int(row["Profit/Losses"])
+        pandl_total = pandl_total + int(row["Profit/Losses"])
 
         #Calculate Revenue Change
-        revenue_change = int(row["Profit/Losses"]) - previous_revenue
-        previous_revenue = int(row["Profit/Losses"])
-        revenue_change_list = revenue_change_list + [revenue_change]
+        pandl_change = int(row["Profit/Losses"]) - previous_pandl
+        previous_pandl = int(row["Profit/Losses"])
+        pandl_change_list = pandl_change_list + [pandl_change]
 
         #Calculate the Average Revenue Change
         
@@ -53,7 +53,7 @@ output = (
     f"Financial Analysis\n"
     f"----------------------------------\n"
     f"Total Months: {months_total}\n"
-    f"Total: ${revenue_total}\n")
+    f"Total: ${pandl_total}\n")
     
 print(output)
 

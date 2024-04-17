@@ -39,7 +39,7 @@ with open(csvpath) as financial_data:
         pandl_change_list = pandl_change_list + [pandl_change]
 
         #Calculate the Average Revenue Change
-
+        print(pandl_change)
 
         #Calculate greatest increase
         if (pandl_change > increase_greatest[1]):
@@ -51,15 +51,4 @@ with open(csvpath) as financial_data:
             decrease_greatest[0] = row["Date"]
             decrease_greatest[1] = pandl_change
 
-#Create Terminal Output
-output = (
-    f"Financial Analysis\n"
-    "\n"
-    f"----------------------------------\n"
-    "\n"
-    f"Total Months: {months_total}\n"
-    f"Total: ${pandl_total}\n"
-    f"Greatest Increase in Profits: {increase_greatest[0]} (${increase_greatest[1]})\n"
-    f"Greatest Decrease in Profits: {decrease_greatest[0]} (${decrease_greatest[1]})")    
-    
-print(output)
+

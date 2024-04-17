@@ -51,4 +51,23 @@ with open(csvpath) as financial_data:
             decrease_greatest[0] = row["Date"]
             decrease_greatest[1] = pandl_change
 
+#Create Terminal Output
+output = (
+    f"Financial Analysis\n"
+    "\n"
+    f"----------------------------------\n"
+    "\n"
+    f"Total Months: {months_total}\n"
+    f"Total: ${pandl_total}\n"
+    f"Greatest Increase in Profits: {increase_greatest[0]} (${increase_greatest[1]})\n"
+    f"Greatest Decrease in Profits: {decrease_greatest[0]} (${decrease_greatest[1]})")    
+    
+print(output)
 
+#Outputing a .txt file
+file_to_output = "PyBank Analysis Summary"
+complete_name = os.path.join('.', 'Analysis', file_to_output+".txt")
+file1 = open(complete_name, "w")
+toFile = output
+file1.write(toFile)
+file1.close()

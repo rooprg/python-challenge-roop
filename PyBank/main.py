@@ -7,9 +7,6 @@ csvpath = os.path.join('.', 'Resources', 'budget_data.csv')
 #Define the field names for two columns
 fieldnames = ['Date', 'Profit/Losses']
 
-# Generating output
-file_to_output = "PyBank Analysis Summary"
-
 #Create lists
 delta_months = []
 pandl_change_list = []
@@ -32,29 +29,45 @@ with open(csvpath) as financial_data:
         #Change in Months calculation
         months_total += 1
         delta_months.append(row["Date"])
-
+        
         #Total revenue calculation
         pandl_total = pandl_total + int(row["Profit/Losses"])
 
         #Calculate Revenue Change
         pandl_change = int(row["Profit/Losses"]) - previous_pandl
         previous_pandl = int(row["Profit/Losses"])
-        
+        pandl_change_list = pandl_change_list + [pandl_change]
 
         #Calculate the Average Revenue Change
-        
+
 
         #Calculate greatest increase
+        if (pandl_change > increase_greatest[1]):
+            increase_greatest[0] = row["Date"]
+            increase_greatest[1] = pandl_change
 
         #Calculate greatest decrease
+        if (pandl_change < decrease_greatest[1]):
+            decrease_greatest[0] = row["Date"]
+            decrease_greatest[1] = pandl_change
 
 #Create Terminal Output
 output = (
     f"Financial Analysis\n"
+    "\n"
     f"----------------------------------\n"
+    "\n"
     f"Total Months: {months_total}\n"
-    f"Total: ${pandl_total}\n")
+    f"Total: ${pandl_total}\n"
+    f"Greatest Increase in Profits: {increase_greatest[0]} (${increase_greatest[1]})\n"
+    f"Greatest Decrease in Profits: {decrease_greatest[0]} (${decrease_greatest[1]})")    
     
 print(output)
 
 #Outputing a .txt file
+file_to_output = "PyBank Analysis Summary"
+complete_name = os.path.join('.', 'Analysis', file_to_output+".txt")
+file1 = open(complete_name, "w")
+toFile = output
+file1.write(toFile)
+file1.close()

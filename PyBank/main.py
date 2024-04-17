@@ -39,7 +39,7 @@ with open(csvpath) as financial_data:
         #Calculate Revenue Change
         pandl_change = int(row["Profit/Losses"]) - previous_pandl
         previous_pandl = int(row["Profit/Losses"])
-        pandl_change_list = pandl_change_list + [pandl_change]
+        
 
         #Calculate the Average Revenue Change
         

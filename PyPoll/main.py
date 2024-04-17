@@ -49,6 +49,7 @@ for candidate in candidate_votes:
 # Create Terminal Output
 output = (
     f"Election Results\n"
+    "\n"
     f"--------------------------\n"
     "\n"
     f"Total Votes: {total_votes}\n"
@@ -62,7 +63,6 @@ for candidate in candidate_votes:
     output += f"{candidate}: {vote_percentage:.3f}% ({votes})\n"
 
 output += (
-    f"\n"
     f"--------------------------\n"
     "\n"
     f"Winner: {winning_candidate}\n"
